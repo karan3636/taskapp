@@ -30,13 +30,20 @@ app.controller("taskCtrl", function ($scope, $http) {
     console.log(task);
   });
 
-  // $scope.DeleteTask = function(task){
-  // 	var index = $scope.Tasklist.indexOf(task);
-  // 	alert("Successfully Deleted");
-  // 	$scope.Tasklist.splice(index,1);
-  // };
+  $scope.DeleteTask = DeleteTask;
+  function DeleteTask(task) {
+    $http.delete("/api/delete/" + task).then(
+      function () {
+        console.log("success");
+      },
+      function (error) {
+        console.log("Error");
+      }
+    );
+  }
 
-  $scope.UpdateTask = function () {
+  $scope.UpdateTask = UpdateTask;
+  function UpdateTask (task) {
     var index = $scope.index;
 
     $http.put("/task/:id").then(function (task) {

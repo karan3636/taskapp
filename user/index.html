@@ -19,7 +19,7 @@ table tr:nth-child(even) {
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script>
-    <script src="controller.js"></script>
+    <script src="/user/controller.js"></script>
 <header>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
@@ -35,18 +35,18 @@ table tr:nth-child(even) {
    <table align="center">
   <input type="hidden" ng-model="index">
    
-     <td>Task Name:</td>
-    <td><input type="text" name="Taskname" ng-model="task_name" placeholder="Task Name" required>
-    </td>
-    <td>Date:</td>
-   <td> <input type="Date" name="Date" ng-model="task_date" placeholder="mm/dd/yyyy"  min="2020-01-01" max="2020-12-31" required></td>
+   <tr><td>Task Name:
+    <input type="text" name="Taskname" ng-model="task_name" placeholder="Task Name" required>
     
-    
-    <td> <input  type="submit" name="submit" ng-click="AddTask()" value="Add New Task" style="background-color: #4CAF50;
+    Date:
+   <input type="Date" name="Date" ng-model="task_date" placeholder="mm/dd/yyyy"  min="2020-01-01" max="2020-12-31" required></td>
+  </tr>
+   <tr></table>
+   <input  type="submit" name="submit" ng-click="AddTask()" value="Add New Task" style="background-color: #4CAF50;
     border: none;color: white; padding: 6px 14px; text-align: center; text-decoration: none; display: inline-block; font-size: 13px; margin-left:600px;margin-top:12px; cursor: pointer; ">
     	<input type="button" name="update" ng-click="UpdateTask()" value="Update Task" style="background-color: #4CAF50;
     border: none;color: white; padding: 6px 14px; text-align: center; text-decoration: none; display: inline-block; font-size: 13px; margin: 4px 2px; cursor: pointer;">
-    </td></table>
+    
   
   </form>
  </br>
@@ -65,7 +65,7 @@ table tr:nth-child(even) {
   	<td style="text-align: center;">{{task.task_date | date: "yyyy-MM-dd"}}</td>
   	<td style="text-align: center;" colspan="2"><input type="button" name="DELETE" value="DELETE" ng-click="DeleteTask(task)" style="background-color: #E42217;
     border: none;color: white; padding: 6px 14px; text-align: center; text-decoration: none; display: inline-block; font-size: 13px; margin: 4px 2px; cursor: pointer;">
-  		<input type="button" name="EDIT" value="EDIT" ng-click="BindSelectedTask(task)" style="background-color: #6C2DC7;
+  		<input type="button" name="EDIT" value="EDIT" ng-click="UpdateTask(task)" style="background-color: #6C2DC7;
     border: none;color: white; padding: 6px 14px; text-align: center; text-decoration: none; display: inline-block; font-size: 13px; margin: 4px 2px; cursor: pointer;">
 
   	</td>
