@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const pool = require("./db");
 var bodyparser = require("body-parser");
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
@@ -79,6 +80,6 @@ app.delete("/task/:id", async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log("Listening on port 3000");
+app.listen(port, () => {
+  console.log("Listening on port at ${port}");
 });
