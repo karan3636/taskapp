@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+
+<style>
+table, th , td  {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+table tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+</style>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script>
+    <script src="controller.js"></script>
+<header>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <h1 style="background-color: #666;
+  padding: 30px;
+  margin-top: 0px;
+  margin-bottom: 3px;
+  text-align: center;
+  font-size: 35px;
+  color: white;">Task Time Calculator</h1></header>
+<div ng-app ="myApp" ng-controller="taskCtrl">
+  <form name="myform" action = "post">	
+   <table align="center">
+  <input type="hidden" ng-model="index">
+   
+     <td>Task Name:</td>
+    <td><input type="text" name="Taskname" ng-model="task_name" placeholder="Task Name" required>
+    </td>
+    <td>Date:</td>
+   <td> <input type="Date" name="Date" ng-model="task_date" placeholder="mm/dd/yyyy"  min="2020-01-01" max="2020-12-31" required></td>
+    
+    
+    <td> <input  type="submit" name="submit" ng-click="AddTask()" value="Add New Task" style="background-color: #4CAF50;
+    border: none;color: white; padding: 6px 14px; text-align: center; text-decoration: none; display: inline-block; font-size: 13px; margin-left:600px;margin-top:12px; cursor: pointer; ">
+    	<input type="button" name="update" ng-click="UpdateTask()" value="Update Task" style="background-color: #4CAF50;
+    border: none;color: white; padding: 6px 14px; text-align: center; text-decoration: none; display: inline-block; font-size: 13px; margin: 4px 2px; cursor: pointer;">
+    </td></table>
+  
+  </form>
+ </br>
+ <table border="1px" style="border: 1px solid grey;border-collapse: collapse; padding: 1px; 
+   width: 100%;">
+  <thead>
+  	<th>Index</th>
+  	<th>Task Name</th>
+  	<th>Task Date</th>
+  	<th>Action</th>
+  </thead>
+  
+  <tr  ng-repeat="task in Tasklist">
+  	<td style="text-align: center;"> {{$index}}</td>
+  	<td style="text-align: center;">{{task.task_name}}</td>
+  	<td style="text-align: center;">{{task.task_date | date: "yyyy-MM-dd"}}</td>
+  	<td style="text-align: center;" colspan="2"><input type="button" name="DELETE" value="DELETE" ng-click="DeleteTask(task)" style="background-color: #E42217;
+    border: none;color: white; padding: 6px 14px; text-align: center; text-decoration: none; display: inline-block; font-size: 13px; margin: 4px 2px; cursor: pointer;">
+  		<input type="button" name="EDIT" value="EDIT" ng-click="BindSelectedTask(task)" style="background-color: #6C2DC7;
+    border: none;color: white; padding: 6px 14px; text-align: center; text-decoration: none; display: inline-block; font-size: 13px; margin: 4px 2px; cursor: pointer;">
+
+  	</td>
+  	
+  </tr>
+ 	
+ </table>
+
+</div>
+
+
+
+
+
+</body>
+</html>
