@@ -30,19 +30,20 @@ table tr:nth-child(even) {
   text-align: center;
   font-size: 35px;
   color: white;">Task Time Calculator</h1></header>
-<div ng-app ="myApp" ng-controller="taskCtrl">
+<div ng-app ="myApp" ng-controller="taskCtrl" ng-init="allTask()">
   <form name="myform" action = "post">	
    <table align="center">
   <input type="hidden" ng-model="index">
    
    <tr><td>Task Name:
-    <input type="text" name="Taskname" ng-model="task_name" placeholder="Task Name" required>
+    <input type="text" name="task_name" ng-model="task_name" placeholder="Task Name" required>
     
     Date:
-   <input type="Date" name="Date" ng-model="task_date" placeholder="mm/dd/yyyy"  min="2020-01-01" max="2020-12-31" required></td>
+   <input type="Date" name="task_date" ng-model="task_date" placeholder="mm/dd/yyyy"  min="2020-01-01" max="2020-12-31" required></td>
   </tr>
+  
    <tr></table>
-   <input  type="submit" name="submit" ng-click="AddTask()" value="Add New Task" style="background-color: #4CAF50;
+   <input  type="submit" name="submit" ng-click="Addtask()" value="Add New Task" style="background-color: #4CAF50;
     border: none;color: white; padding: 6px 14px; text-align: center; text-decoration: none; display: inline-block; font-size: 13px; margin-left:600px;margin-top:12px; cursor: pointer; ">
     	<input type="button" name="update" ng-click="UpdateTask()" value="Update Task" style="background-color: #4CAF50;
     border: none;color: white; padding: 6px 14px; text-align: center; text-decoration: none; display: inline-block; font-size: 13px; margin: 4px 2px; cursor: pointer;">
@@ -59,7 +60,7 @@ table tr:nth-child(even) {
   	<th>Action</th>
   </thead>
   
-  <tr  ng-repeat="task in Tasklist">
+  <tr  ng-repeat="task in tasks">
   	<td style="text-align: center;"> {{$index}}</td>
   	<td style="text-align: center;">{{task.task_name}}</td>
   	<td style="text-align: center;">{{task.task_date | date: "yyyy-MM-dd"}}</td>

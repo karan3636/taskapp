@@ -14,6 +14,14 @@ app.use(bodyparser.urlencoded({ extended: true }));
 app.get("/", function (req, res) {
   res.sendfile("user/index.html");
 });
+
+app.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST,DELETE,PUT');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin,X-Requested-With,content-type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  next();
+});
 //get tasks
 app.get("/task/view", async (req, res) => {
   try {
@@ -39,6 +47,7 @@ app.get("/task/:id", async (req, res) => {
 //new task
 app.post("/task", async (req, res) => {
   try {
+    console.log(req.body);
     const { task_name } = req.body;
     const { task_date } = req.body;
     const newTask = await pool.query(
@@ -80,6 +89,6 @@ app.delete("/task/:id", async (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log("Listening on port at ${port}");
-});
+var http = require("http").createServer(app).listen(port, function(){
+  console.log("Server started on 3000....");
+});;
