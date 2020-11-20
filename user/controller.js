@@ -39,7 +39,7 @@ app.controller("taskCtrl", function ($scope, $http) {
     // var id = $scope.tasks.indexOf(task);
     // var id = id + 34;
     console.log(id);
-    $http.delete('http://localhost:3000/task/'+id).then(successCallback, errorCallback);
+    $http.delete('https://taskapp-karan.herokuapp.com/task/'+id).then(successCallback, errorCallback);
        function successCallback(response){
            $scope.deleteId=response.data;
             console.log($scope.deleteId);
