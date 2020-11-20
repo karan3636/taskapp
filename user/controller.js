@@ -9,7 +9,8 @@ app.controller("taskCtrl", function ($scope, $http) {
            task_date : $scope.task_date
          }
          console.log(data);
-         $http.post("http://localhost:3000/" + 'task',data).then(
+         $http.post("https://taskapp-karan.herokuapp.com/" + 'task',data).then(
+        //  "http://localhost:3000/" + 'task',data
            function () {
             console.log("success");
           },
@@ -22,7 +23,7 @@ app.controller("taskCtrl", function ($scope, $http) {
 
   
   $scope.allTask = function(){
-    $http.get('http://localhost:3000/task/'+'view').then(successCallback, errorCallback);
+    $http.get('https://taskapp-karan.herokuapp.com/task/'+'view').then(successCallback, errorCallback);
     function successCallback(response){
         $scope.tasks=response.data;
         console.log( $scope.tasks);
