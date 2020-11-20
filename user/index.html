@@ -31,7 +31,7 @@ table tr:nth-child(even) {
   font-size: 35px;
   color: white;">Task Time Calculator</h1></header>
 <div ng-app ="myApp" ng-controller="taskCtrl" ng-init="allTask()">
-  <form name="myform" action = "post">	
+  <form name="myform" method = "post">	
    <table align="center">
   <input type="hidden" ng-model="index">
    
@@ -42,11 +42,11 @@ table tr:nth-child(even) {
    <input type="Date" name="task_date" ng-model="task_date" placeholder="mm/dd/yyyy"  min="2020-01-01" max="2020-12-31" required></td>
   </tr>
   
-   <tr></table>
+   </table>
    <input  type="submit" name="submit" ng-click="Addtask()" value="Add New Task" style="background-color: #4CAF50;
     border: none;color: white; padding: 6px 14px; text-align: center; text-decoration: none; display: inline-block; font-size: 13px; margin-left:600px;margin-top:12px; cursor: pointer; ">
-    	<input type="button" name="update" ng-click="UpdateTask()" value="Update Task" style="background-color: #4CAF50;
-    border: none;color: white; padding: 6px 14px; text-align: center; text-decoration: none; display: inline-block; font-size: 13px; margin: 4px 2px; cursor: pointer;">
+    	<!-- <input type="button" name="update" ng-click="UpdateTask()" value="Update Task" style="background-color: #4CAF50;
+    border: none;color: white; padding: 6px 14px; text-align: center; text-decoration: none; display: inline-block; font-size: 13px; margin: 4px 2px; cursor: pointer;"> -->
     
   
   </form>
@@ -61,13 +61,13 @@ table tr:nth-child(even) {
   </thead>
   
   <tr  ng-repeat="task in tasks">
-  	<td style="text-align: center;"> {{$index}}</td>
+  	<td style="text-align: center;"> {{$index+1}}</td>
   	<td style="text-align: center;">{{task.task_name}}</td>
   	<td style="text-align: center;">{{task.task_date | date: "yyyy-MM-dd"}}</td>
   	<td style="text-align: center;" colspan="2"><input type="button" name="DELETE" value="DELETE" ng-click="DeleteTask(task)" style="background-color: #E42217;
     border: none;color: white; padding: 6px 14px; text-align: center; text-decoration: none; display: inline-block; font-size: 13px; margin: 4px 2px; cursor: pointer;">
-  		<input type="button" name="EDIT" value="EDIT" ng-click="UpdateTask(task)" style="background-color: #6C2DC7;
-    border: none;color: white; padding: 6px 14px; text-align: center; text-decoration: none; display: inline-block; font-size: 13px; margin: 4px 2px; cursor: pointer;">
+  		<!-- <input type="button" name="EDIT" value="EDIT" ng-click="UpdateTask(task)" style="background-color: #6C2DC7;
+    border: none;color: white; padding: 6px 14px; text-align: center; text-decoration: none; display: inline-block; font-size: 13px; margin: 4px 2px; cursor: pointer;"> -->
 
   	</td>
   	

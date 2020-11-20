@@ -45,14 +45,16 @@ app.get("/task/:id", async (req, res) => {
 });
 
 //new task
-app.post("/task", async (req, res) => {
+app.post("/task", async (req, res,next) => {
+  var data = req.body;
+  console.log('request received:', data);
   try {
     console.log(req.body);
-    const { task_name } = req.body;
-    const { task_date } = req.body;
+    // const { task_name } = req.body;
+    // const { task_date } = req.body;
     const newTask = await pool.query(
       "INSERT INTO task(task_name,task_date) VALUES($1,$2) RETURNING *",
-      [task_name, task_date]
+      [req.body.task_name,req.body.task_date]
     );
     res.json(newTask);
   } catch (err) {

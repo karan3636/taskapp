@@ -3,15 +3,13 @@ var app = angular.module("myApp", []);
 app.controller("taskCtrl", function ($scope, $http) {
   //	$scope.Tasklist =[];
   
- $scope.Addtask = Addtask;
-      
-       function Addtask() {
-        // var task ={
-        //   task_name = $scope.task_name,
-        //   task_date = $scope.task_date
-        //       }
-            
-         $http.post("http://localhost:3000/" + 'task').then(
+ $scope.Addtask = function () {
+         var data ={
+           task_name : $scope.task_name,
+           task_date : $scope.task_date
+         }
+         console.log(data);
+         $http.post("http://localhost:3000/" + 'task',data).then(
            function () {
             console.log("success");
           },
@@ -38,6 +36,7 @@ app.controller("taskCtrl", function ($scope, $http) {
   $scope.DeleteTask = DeleteTask;
   function DeleteTask(task) {
     var id = $scope.tasks.indexOf(task);
+    var id = id + 34;
     console.log(id);
     $http.delete('http://localhost:3000/task/'+id).then(successCallback, errorCallback);
        function successCallback(response){
@@ -49,12 +48,12 @@ app.controller("taskCtrl", function ($scope, $http) {
        }
   }
 
-  $scope.UpdateTask = UpdateTask;
-  function UpdateTask (task) {
-    var index = $scope.index;
+  // $scope.UpdateTask = UpdateTask;
+  // function UpdateTask (task) {
+  //   var index = $scope.index;
 
-    $http.put("/task/:id").then(function (task) {
-      console.log("success");
-    });
-  };
+  //   $http.put("/task/:id").then(function (task) {
+  //     console.log("success");
+  //   });
+  // };
 });
