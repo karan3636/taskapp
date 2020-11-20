@@ -34,9 +34,9 @@ app.controller("taskCtrl", function ($scope, $http) {
   
 
   $scope.DeleteTask = DeleteTask;
-  function DeleteTask(task) {
-    var id = $scope.tasks.indexOf(task);
-    var id = id + 34;
+  function DeleteTask(id) {
+    // var id = $scope.tasks.indexOf(task);
+    // var id = id + 34;
     console.log(id);
     $http.delete('http://localhost:3000/task/'+id).then(successCallback, errorCallback);
        function successCallback(response){
