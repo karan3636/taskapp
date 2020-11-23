@@ -24,7 +24,7 @@ a:link, a:visited {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  margin-top: 5px;
+  margin-top: 7px;
   margin-left: 620px;
 }
 a:hover, a:active {
@@ -81,8 +81,11 @@ a:hover, a:active {
   	<td style="text-align: center;"> {{$index+1}}</td>
   	<td style="text-align: center;">{{task.task_name}}</td>
   	<td style="text-align: center;">{{task.task_date | date: "yyyy-MM-dd"}}</td>
-  	<td style="text-align: center;" colspan="2"><input type="button" name="DELETE" value="DELETE" ng-click="DeleteTask(task.task_id)" style="background-color: #E42217;
+    <td style="text-align: center;" colspan="2">
+    <!-- <input type="button" name="DELETE" value="DELETE" ng-click="DeleteTask(task.task_id)" ;"> -->
+  	 <a class="delete" href="https://taskapp-karan.herokuapp.com/"  input  type="submit" ng-click="DeleteTask(task.task_id)"style="background-color: #E42217;
     border: none;color: white; padding: 6px 14px; text-align: center; text-decoration: none; display: inline-block; font-size: 13px; margin: 4px 2px; cursor: pointer;">
+      DELETE</a>
   		<!-- <input type="button" name="EDIT" value="EDIT" ng-click="UpdateTask(task)" style="background-color: #6C2DC7;
     border: none;color: white; padding: 6px 14px; text-align: center; text-decoration: none; display: inline-block; font-size: 13px; margin: 4px 2px; cursor: pointer;"> -->
 
