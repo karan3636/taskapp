@@ -55,7 +55,7 @@ a:hover, a:active {
     <input type="text" name="task_name" ng-model="task_name" placeholder="Task Name" required>
     
     Date:
-   <input type="Date" name="task_date" ng-model="task_date" placeholder="mm/dd/yyyy"  min="2020-01-01" max="2020-12-31" required></td>
+   <input type="Date" name="task_date" ng-model-options="{timezone:'UTC'}" ng-model="task_date" placeholder="mm/dd/yyyy"  min="2020-01-01" max="2020-12-31" required></td>
   </tr>
   
    </table>
